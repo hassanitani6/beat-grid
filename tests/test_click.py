@@ -52,7 +52,7 @@ def test_unsupported_sample_rate():
 
 
 def test_click_samples_are_stable(tmp_path):
-    """Golden check: the 16-bit samples match the click track the original tool wrote for this grid."""
+    """Golden check: the 16-bit samples match the recorded reference click track for this grid."""
     data, _ = sf.read(write_wav(click_samples(GRID), tmp_path / "c.wav"), dtype="int16")
     assert hashlib.sha256(data.tobytes()).hexdigest() == GOLDEN_SHA
 
