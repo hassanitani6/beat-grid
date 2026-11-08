@@ -132,7 +132,7 @@ def test_cuts_text_and_json(grid_file, capsys):
     assert "4 beats -> 1.97 s (59 frames)" in out and "total 4.97 s" in out  # starts at the first bar, 0 s
     assert main(["cuts", str(grid_file), "--beats", "4,2,2,1,1", "--fps", "25"]) == 0
     out = capsys.readouterr().out
-    assert "4 beats -> 1.96 s (49 frames)" in out and "total 4.96 s" in out  # the original tool's 25 fps
+    assert "4 beats -> 1.96 s (49 frames)" in out and "total 4.96 s" in out  # 25 fps, common for PAL video
     assert main(["cuts", str(grid_file), "--beats", "2,2", "--offset", "1", "--fps", "30", "--lead", "0",
                  "--json"]) == 0
     data = json.loads(capsys.readouterr().out)
