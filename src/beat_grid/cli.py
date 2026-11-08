@@ -44,6 +44,13 @@ def _stem(path: Path) -> str:
     return path.stem
 
 
+def _umask() -> int:
+    """The process umask (reading it requires setting it, so it is restored at once)."""
+    mask = os.umask(0o022)
+    os.umask(mask)
+    return mask
+
+
 def _atomic(dest: Path, write) -> None:
     """Write to a new, uniquely named temporary file beside dest, then rename it over dest, so an interrupted run
     never leaves a half-written file and never touches a file it didn't create."""
@@ -51,6 +58,7 @@ def _atomic(dest: Path, write) -> None:
     os.close(fd)
     tmp = Path(name)
     try:
+        os.chmod(tmp, 0o666 & ~_umask())  # mkstemp makes the file private (0600); outputs get normal permissions
         write(tmp)
         os.replace(tmp, dest)
     except BaseException:
