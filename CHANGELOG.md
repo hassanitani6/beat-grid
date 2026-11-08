@@ -2,13 +2,13 @@
 
 Versions follow [Semantic Versioning](https://semver.org/).
 
-## Unreleased
+## 0.1.1 — 2026-11-08
 
 ### Fixed
 - Output files (beat grids, click tracks, cut lists, energy reports, the demo song) are now created with
 the usual permissions for new files instead of being readable only by your user account.
 
-## 0.1.0 — unreleased
+## 0.1.0 — 2026-11-08 (published on GitHub, not tagged)
 
 First public release: `demo` (a synthetic drum loop to try it on), `analyze` (tempo, beats and bar starts to JSON), `click` (click-track WAV from a beat grid),
 `cuts` (frame-accurate shot lengths from beat counts), `energy` (loudness and busyness per block of bars) and

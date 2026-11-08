@@ -1,6 +1,6 @@
 [project]
 name = "beat-grid"
-version = "0.1.0"
+version = "0.1.1"
 description = "Measure a song's beats and bar starts, make click tracks, and get frame-accurate shot lengths for cutting video on the beat."
 readme = "README.md"
 license = "MIT"
