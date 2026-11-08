@@ -1,0 +1,39 @@
+name: Bug report
+description: Beats are in the wrong place, a file is rejected, or the tool crashes.
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Before you file:** issues are public. Don't attach music you don't have the rights to share; a beat grid
+        JSON and a description of the song (genre, tempo) are usually enough.
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Environment (`beat-grid doctor` output)
+      description: Run `beat-grid doctor` and paste the result. Check it first; it should not contain personal details.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: The exact error, or what is wrong (beats drift, bar starts off by one beat, shot lengths wrong...).
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The command you ran, and the beat grid JSON if it's relevant.
+      render: text
+      placeholder: beat-grid cuts song.beats.json --beats 4,2,2 --fps 30
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
